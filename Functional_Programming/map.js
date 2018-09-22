@@ -40,16 +40,11 @@ var upperName = name.map(function(name) {
 })
 console.log(upperName.shift())
 
-// promise
-var upperName = function(name) {
-    return new Promise(function(resolve) {
-        var data = []
-        name.map(function(name) {
-            data.push(name.toUpperCase())
-        })
-        resolve(data)
-    })
-}
-upperName(name).then(function(data) {
+// using promise
+var upperName = name.map(async function(name) {
+    return name.toUpperCase()
+})
+
+Promise.all(upperName).then(function(data) {
     console.log(data.shift())
 })
